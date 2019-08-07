@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h1><%= @artist.name %></h1>
+</div>
+<%= image_tag "artist.jpeg" %>
+
+
+
+<p><%= link_to "Edit", edit_artist_path(@artist) %></p>
+<p><%= link_to "Delete artist", artist_path(@artist),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+<p><%= link_to "Return to artists", artists_path %></p>
