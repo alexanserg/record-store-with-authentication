@@ -1,10 +1,4 @@
 class SongsController < ApplicationController
-
-  def index
-    @songs = Song.all
-    render :index
-  end
-
   def new
     @album = Album.find(params[:album_id])
     @song = @album.songs.new

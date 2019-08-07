@@ -1,3 +1,8 @@
+<% content_for(:navbar) do %>
+  <li><a href="/">Home</a></li>
+  <li><%= link_to @album.name, album_path(@album) %></li>
+<% end %>
+
 <h1>Edit song:</h1>
 
 <%= form_for [@album, @song] do |f| %>

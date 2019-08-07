@@ -1,7 +1,8 @@
 <% content_for(:navbar) do %>
   <li><a href="/">Home</a></li>
+  <li><%= link_to @album.name, album_path(@album) %></li>
 <% end %>
 
-<h1>Add a new album:</h1>
+<h1>Edit Album</h1>
 
 <%= render "layouts/album_form" %>
