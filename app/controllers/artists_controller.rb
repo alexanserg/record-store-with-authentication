@@ -13,6 +13,7 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
+      before_action :authorize, only: [:secret]
       flash[:notice] = "Artist successfully added!"
       redirect_to artists_path
     else
@@ -43,6 +44,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @artist.destroy
     redirect_to artists_path
+  end
+
+
+  def secret
   end
 
   private
