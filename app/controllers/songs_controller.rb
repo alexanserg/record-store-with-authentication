@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :authorize
   def new
     @album = Album.find(params[:album_id])
     @song = @album.songs.new
@@ -47,6 +48,8 @@ class SongsController < ApplicationController
     render :show
   end
 
+  def secret
+  end
   private
     def song_params
       params.require(:song).permit(:name, :lyrics)

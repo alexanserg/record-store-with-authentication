@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-
+  before_action :authorize
   def index
     @artists = Artist.all
     render :index
@@ -13,7 +13,6 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      before_action :authorize, only: [:secret]
       flash[:notice] = "Artist successfully added!"
       redirect_to artists_path
     else
@@ -47,8 +46,7 @@ class ArtistsController < ApplicationController
   end
 
 
-  def secret
-  end
+
 
   private
   def artist_params

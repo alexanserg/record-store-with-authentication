@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-
+  before_action :authorize
   def index
     @albums = Album.all
     render :index
@@ -42,6 +42,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find(params[:id])
     @album.destroy
+    flash[:notice] = "You have successfully deleted the album."
     redirect_to albums_path
   end
 
